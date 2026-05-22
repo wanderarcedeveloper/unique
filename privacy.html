@@ -3,238 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade - Unique</title>
+    <title>Política de Privacidade - UNIQUE</title>
     <style>
+        :root {
+            --bg: #f7f5f2;
+            --card: #ffffff;
+            --text: #2d2d33;
+            --muted: #7b7b8b;
+            --primary: #d98399;
+            --primary-dark: #b35f75;
+            --surface: rgba(255, 255, 255, 0.8);
+            --border: rgba(173, 150, 162, 0.25);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+            min-height: 100vh;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top left, rgba(217, 131, 153, 0.18), transparent 25%),
+                        radial-gradient(circle at bottom right, rgba(92, 154, 172, 0.16), transparent 30%),
+                        linear-gradient(180deg, #fdf9f6 0%, #f5f0ee 100%);
+            color: var(--text);
+            padding: 32px;
+        }
+
+        .page {
+            display: grid;
+            place-items: center;
             padding: 20px;
         }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        .card {
+            width: min(100%, 920px);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 36px;
+            box-shadow: 0 32px 80px rgba(92, 86, 107, 0.12);
+            overflow: hidden;
         }
-        
+
+        .hero {
+            position: relative;
+            padding: 48px 40px;
+            background: linear-gradient(145deg, rgba(217, 131, 153, 0.12), rgba(92, 154, 172, 0.08));
+            backdrop-filter: blur(20px);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 10% 20%, rgba(217, 131, 153, 0.2), transparent 18%),
+                        radial-gradient(circle at 80% 30%, rgba(92, 154, 172, 0.2), transparent 18%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 680px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(173, 150, 162, 0.18);
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+            width: fit-content;
+        }
+
+        .badge::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
         h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 28px;
+            font-size: clamp(2.6rem, 3vw, 3.4rem);
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            margin-top: 12px;
+            color: #2f2330;
         }
-        
-        .last-update {
-            color: #7f8c8d;
-            font-size: 14px;
-            margin-bottom: 30px;
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 1rem;
+            max-width: 680px;
         }
-        
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 20px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
+
+        .info-row {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
         }
-        
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
+
+        .pill {
+            background: rgba(217, 131, 153, 0.08);
+            color: #a65e79;
+            border-radius: 999px;
+            padding: 10px 18px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(217, 131, 153, 0.14);
         }
-        
-        ul {
-            margin: 15px 0;
-            padding-left: 30px;
+
+        .content {
+            display: grid;
+            gap: 28px;
+            padding: 40px;
         }
-        
-        li {
-            margin-bottom: 10px;
+
+        .section {
+            display: grid;
+            gap: 14px;
         }
-        
+
+        .section h2 {
+            font-size: 1.45rem;
+            color: #3b3450;
+            border-bottom: 2px solid rgba(217, 131, 153, 0.27);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .section p,
+        .section li {
+            color: #4b4b59;
+            line-height: 1.75;
+        }
+
+        .section ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            margin-top: 10px;
+            padding-left: 0;
+        }
+
+        .section li {
+            padding: 18px 20px;
+            border-radius: 18px;
+            background: #faf6f3;
+            border: 1px solid rgba(217, 131, 153, 0.11);
+        }
+
+        .section li strong {
+            color: #2d2d33;
+        }
+
         .highlight {
-            background-color: #fff3cd;
-            padding: 15px;
-            border-left: 4px solid #ffc107;
-            margin: 20px 0;
+            border-radius: 24px;
+            padding: 22px;
+            background: linear-gradient(90deg, rgba(217, 131, 153, 0.10), rgba(92, 154, 172, 0.08));
+            border: 1px solid rgba(173, 150, 162, 0.16);
+            color: #3b3450;
         }
-        
+
         .contact {
-            background-color: #e8f4f8;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 30px;
+            display: grid;
+            gap: 16px;
+            padding: 28px;
+            border-radius: 28px;
+            background: #fbf8f6;
+            border: 1px solid rgba(173, 150, 162, 0.14);
         }
-        
-        a {
-            color: #3498db;
+
+        .contact h2 {
+            margin: 0;
+            border: none;
+            padding: 0;
+            color: #3b3450;
+        }
+
+        .contact ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .contact li {
+            display: flex;
+            gap: 8px;
+            align-items: baseline;
+            color: #4b4b59;
+        }
+
+        .contact a {
+            color: #c95b7d;
             text-decoration: none;
         }
-        
-        a:hover {
+
+        .contact a:hover {
             text-decoration: underline;
         }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
+
+        .footer {
+            padding: 28px 40px 36px;
+            text-align: center;
+            font-size: 0.93rem;
+            color: var(--muted);
+            border-top: 1px solid rgba(173, 150, 162, 0.12);
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        @media (max-width: 840px) {
+            .hero {
+                padding: 32px 28px;
             }
-            
+
+            .content {
+                padding: 32px 28px;
+            }
+
+            .footer {
+                padding: 24px 28px 30px;
+            }
+        }
+
+        @media (max-width: 620px) {
+            body {
+                padding: 18px;
+            }
+
+            .hero {
+                padding: 28px 22px;
+            }
+
+            .content {
+                padding: 28px 22px;
+            }
+
             h1 {
-                font-size: 24px;
+                font-size: 2.4rem;
+            }
+
+            .section h2 {
+                font-size: 1.25rem;
+            }
+
+            .pill {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Política de Privacidade</h1>
-        <p class="last-update">Última atualização: ex: 22 de maio de 2026]</p>
-        
-        <p>
-            A sua privacidade é importante para nós. Esta Política de Privacidade descreve como o 
-            <strong>Unique</strong> ("nós", "nosso" ou "aplicativo") coleta, usa, 
-            armazena e protege suas informações pessoais quando você utiliza nosso aplicativo móvel.
-        </p>
-        
-        <div class="highlight">
-            <strong>Ao utilizar nosso aplicativo, você concorda com a coleta e uso de informações 
-            de acordo com esta política.</strong>
-        </div>
-        
-        <h2>1. Informações que Coletamos</h2>
-        <p>Para fornecer e melhorar nossos serviços, coletamos as seguintes informações:</p>
-        
-        <h3 style="margin-top: 20px; color: #555;">1.1 Informações Fornecidas por Você</h3>
-        <ul>
-            <li><strong>E-mail:</strong> Utilizado para autenticação, recuperação de conta e comunicação importante sobre o serviço.</li>
-            <li><strong>Número de Telefone:</strong> Coletado para verificação de identidade e autenticação de dois fatores (quando aplicável).</li>
-            <li><strong>Dados de Cadastro:</strong> Informações fornecidas durante o registro da conta.</li>
-        </ul>
-        
-        <h3 style="margin-top: 20px; color: #555;">1.2 Informações Coletadas Automaticamente</h3>
-        <ul>
-            <li><strong>Dados de Uso:</strong> Informações sobre como você interage com o aplicativo.</li>
-            <li><strong>Dados do Dispositivo:</strong> Modelo do dispositivo, sistema operacional, identificadores únicos.</li>
-            <li><strong>Logs de Erro:</strong> Informações técnicas para diagnóstico de problemas.</li>
-        </ul>
-        
-        <h2>2. Como Usamos Suas Informações</h2>
-        <p>Utilizamos as informações coletadas para:</p>
-        <ul>
-            <li>Fornecer, operar e manter nosso aplicativo</li>
-            <li>Processar sua autenticação e gerenciar sua conta</li>
-            <li>Enviar notificações importantes sobre o serviço</li>
-            <li>Melhorar, personalizar e expandir nossos serviços</li>
-            <li>Detectar, prevenir e resolver problemas técnicos</li>
-            <li>Proteger contra atividades fraudulentas ou não autorizadas</li>
-            <li>Cumprir obrigações legais</li>
-        </ul>
-        
-        <h2>3. Compartilhamento de Informações</h2>
-        <p>
-            Nós <strong>não vendemos</strong> suas informações pessoais. Podemos compartilhar suas 
-            informações apenas nas seguintes circunstâncias:
-        </p>
-        <ul>
-            <li><strong>Provedores de Serviços:</strong> Compartilhamos com empresas que nos auxiliam na operação do aplicativo (como serviços de autenticação e hospedagem).</li>
-            <li><strong>Conformidade Legal:</strong> Quando exigido por lei ou para proteger nossos direitos legais.</li>
-            <li><strong>Com Seu Consentimento:</strong> Em outras situações, solicitaremos sua permissão explícita.</li>
-        </ul>
-        
-        <h2>4. Segurança dos Dados</h2>
-        <p>
-            Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações 
-            contra acesso não autorizado, alteração, divulgação ou destruição, incluindo:
-        </p>
-        <ul>
-            <li>Criptografia de dados em trânsito e em repouso</li>
-            <li>Controles de acesso rigorosos</li>
-            <li>Monitoramento contínuo de segurança</li>
-            <li>Revisões regulares de práticas de segurança</li>
-        </ul>
-        <p>
-            No entanto, nenhum método de transmissão pela Internet ou armazenamento eletrônico 
-            é 100% seguro. Embora nos esforcemos para proteger suas informações, não podemos 
-            garantir sua segurança absoluta.
-        </p>
-        
-        <h2>5. Retenção de Dados</h2>
-        <p>
-            Mantemos suas informações pessoais apenas pelo tempo necessário para os fins estabelecidos 
-            nesta Política de Privacidade, ou conforme exigido por lei. Quando você solicitar a exclusão 
-            de sua conta, removeremos suas informações pessoais de nossos sistemas ativos.
-        </p>
-        
-        <h2>6. Seus Direitos (LGPD)</h2>
-        <p>De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem os seguintes direitos:</p>
-        <ul>
-            <li><strong>Acesso:</strong> Solicitar cópia dos dados pessoais que mantemos sobre você</li>
-            <li><strong>Correção:</strong> Solicitar correção de dados imprecisos ou incompletos</li>
-            <li><strong>Exclusão:</strong> Solicitar a exclusão de seus dados pessoais</li>
-            <li><strong>Portabilidade:</strong> Solicitar a transferência de seus dados para outro fornecedor</li>
-            <li><strong>Revogação de Consentimento:</strong> Retirar seu consentimento a qualquer momento</li>
-            <li><strong>Informação:</strong> Obter informações sobre o uso de seus dados</li>
-        </ul>
-        
-        <h2>7. Menores de Idade</h2>
-        <p>
-            Nosso serviço não é destinado a menores de 18 anos. Não coletamos intencionalmente 
-            informações pessoais de crianças e adolescentes. Se você é pai/mãe ou responsável e 
-            acredita que seu filho forneceu informações pessoais, entre em contato conosco.
-        </p>
-        
-        <h2>8. Cookies e Tecnologias Semelhantes</h2>
-        <p>
-            Nosso aplicativo pode utilizar tecnologias de rastreamento para melhorar a experiência 
-            do usuário, incluindo cookies, tokens de sessão e identificadores de dispositivo. 
-            Você pode gerenciar essas preferências nas configurações do aplicativo.
-        </p>
-        
-        <h2>9. Alterações nesta Política</h2>
-        <p>
-            Podemos atualizar nossa Política de Privacidade periodicamente. Notificaremos você sobre 
-            quaisquer alterações publicando a nova Política nesta página e atualizando a data de 
-            "Última atualização". Recomendamos que você revise esta Política periodicamente.
-        </p>
-        
-        <h2>10. Links para Sites de Terceiros</h2>
-        <p>
-            Nosso aplicativo pode conter links para sites de terceiros. Não somos responsáveis 
-            pelas práticas de privacidade desses sites. Recomendamos que você leia as políticas 
-            de privacidade de cada site que visitar.
-        </p>
-        
-        <div class="contact">
-            <h2 style="margin-top: 0; border: none; padding: 0;">Contato</h2>
-            <p>
-                Se você tiver dúvidas ou preocupações sobre esta Política de Privacidade, ou quiser 
-                exercer seus direitos, entre em contato conosco:
-            </p>
-            <ul style="margin: 10px 0; padding-left: 20px;">
-                <!-- <li><strong>E-mail:</strong> <a href="mailto:[SEU_EMAIL]">[SEU_EMAIL]</a></li> -->
-                <li><strong>Empresa:</strong> Unique</li>
-                <li><strong>Endereço:</strong> Av. Bandeirantes, 1407 - Guanandi. Campo Grande - MS, 79006-001</li>
-            </ul>
-            <p style="margin-top: 15px; font-size: 14px; color: #666;">
-                Responderemos suas solicitações em até 15 dias úteis, conforme estabelecido pela LGPD.
-            </p>
-        </div>
-        
-        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #7f8c8d; font-size: 14px;">
-            <p>&copy; 2024 [NOME DO SEU APP]. Todos os direitos reservados.</p>
-        </div>
-    </div>
+    <main class="page">
+        <article class="card">
+            <section class="hero">
+                <div class="hero-content">
+                    <span class="badge">Política de Privacidade</span>
+                    <h1>Seu app, seus dados, sua confiança.</h1>
+                    <p class="subtitle">Transparência total sobre como coletamos, usamos e protegemos as informações de quem utiliza o UNIQUE.</p>
+                    <div class="info-row">
+                        <span class="pill">Atualização: 22 de maio de 2026]</span>
+                        <span class="pill">Aplicativo: UNIQUE</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content">
+                <div class="section">
+                    <p>Esta Política de Privacidade descreve como o <strong>UNIQUE</strong> ("nós", "nosso" ou "aplicativo") coleta, armazena, utiliza e protege suas informações pessoais ao usar o serviço.</p>
+                </div>
+
+                <div class="highlight">
+                    <strong>Ao utilizar o UNIQUE, você concorda com a coleta e uso de dados conforme descrito nesta política.</strong>
+                </div>
+
+                <div class="section">
+                    <h2>1. Informações que coletamos</h2>
+                    <p>Para entregar uma experiência segura e eficiente, podemos coletar:</p>
+                    <ul>
+                        <li><strong>E-mail:</strong> para autenticação, recuperação de conta e notificações.</li>
+                        <li><strong>Número de telefone:</strong> para verificação adicional e segurança.</li>
+                        <li><strong>Dados de cadastro:</strong> informações fornecidas no registro.</li>
+                        <li><strong>Dados de uso:</strong> como você interage com o app.</li>
+                        <li><strong>Dados do dispositivo:</strong> modelo, sistema operacional e identificadores.</li>
+                        <li><strong>Logs de erro:</strong> para diagnosticar e corrigir problemas.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>2. Como usamos suas informações</h2>
+                    <p>Usamos os dados coletados para:</p>
+                    <ul>
+                        <li>Manter e melhorar o aplicativo.</li>
+                        <li>Gerenciar sua conta e autenticação.</li>
+                        <li>Enviar avisos importantes sobre o serviço.</li>
+                        <li>Personalizar e expandir funcionalidades.</li>
+                        <li>Detectar e corrigir erros.</li>
+                        <li>Prevenir fraudes e acessos não autorizados.</li>
+                        <li>Cumprir exigências legais.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>3. Compartilhamento</h2>
+                    <p>Nós <strong>não vendemos</strong> seus dados. Compartilhamos somente quando necessário:</p>
+                    <ul>
+                        <li><strong>Provedores de serviços:</strong> parceiros que mantêm o aplicativo em funcionamento.</li>
+                        <li><strong>Conformidade legal:</strong> quando exigido por lei ou para proteger nossos direitos.</li>
+                        <li><strong>Com seu consentimento:</strong> quando você aceitar explicitamente.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>4. Segurança</h2>
+                    <p>Empregamos medidas de proteção para manter seus dados seguros:</p>
+                    <ul>
+                        <li>Criptografia de tráfego e armazenamento.</li>
+                        <li>Controle de acesso restrito.</li>
+                        <li>Monitoramento contínuo.</li>
+                        <li>Revisões regulares de segurança.</li>
+                    </ul>
+                    <p>Mesmo assim, nenhum sistema é 100% infalível.</p>
+                </div>
+
+                <div class="section">
+                    <h2>5. Retenção de dados</h2>
+                    <p>Guardamos suas informações apenas pelo tempo necessário para os fins descritos ou conforme exigido por lei. Quando você solicitar a exclusão da conta, seus dados ativos serão removidos.</p>
+                </div>
+
+                <div class="section">
+                    <h2>6. Seus direitos</h2>
+                    <p>De acordo com a LGPD, você pode:</p>
+                    <ul>
+                        <li><strong>Acessar:</strong> solicitar cópia de seus dados.</li>
+                        <li><strong>Corrigir:</strong> atualizar informações incorretas.</li>
+                        <li><strong>Excluir:</strong> pedir remoção de dados.</li>
+                        <li><strong>Portabilidade:</strong> transferir dados para outro fornecedor.</li>
+                        <li><strong>Revogar consentimento:</strong> retirar permissões a qualquer momento.</li>
+                        <li><strong>Informação:</strong> saber como os dados são usados.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>7. Menores</h2>
+                    <p>O UNIQUE não é destinado a menores de 18 anos. Não coletamos intencionalmente dados de crianças. Se um responsável identificar essa situação, deve nos contatar imediatamente.</p>
+                </div>
+
+                <div class="section">
+                    <h2>8. Cookies e rastreamento</h2>
+                    <p>O aplicativo pode usar cookies e identificadores para melhorar a experiência e manter sessões. Essas preferências podem ser gerenciadas pelas configurações do app.</p>
+                </div>
+
+                <div class="section">
+                    <h2>9. Alterações na política</h2>
+                    <p>Atualizaremos esta política quando necessário. A data de última atualização será revista e a nova versão será publicada nesta página.</p>
+                </div>
+
+                <div class="section">
+                    <h2>10. Sites de terceiros</h2>
+                    <p>O UNIQUE pode conter links para sites externos. Não somos responsáveis pelas práticas de privacidade desses sites. Leia sempre as políticas de privacidade de terceiros.</p>
+                </div>
+
+                <div class="contact">
+                    <h2>Contato</h2>
+                    <p>Se tiver dúvidas ou quiser exercer seus direitos, entre em contato conosco:</p>
+                    <ul>
+                        <!-- <li><strong>E-mail:</strong> <a href="mailto:[SEU_EMAIL]">[SEU_EMAIL]</a></li> -->
+                        <li><strong>Empresa:</strong> Unique</li>
+                        <li><strong>Endereço:</strong> Av. Bandeirantes, 1407 - GuanandiCampo Grande - MS, 79006-001</li>
+                    </ul>
+                    <p>Responderemos suas solicitações em até 15 dias úteis, conforme a LGPD.</p>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>&copy; 2024 UNIQUE. Todos os direitos reservados.</p>
+            </footer>
+        </article>
+    </main>
 </body>
 </html>
