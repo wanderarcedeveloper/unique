@@ -6,392 +6,113 @@
     <title>Política de Privacidade - UNIQUE</title>
     <style>
         :root {
-            --bg: #f7f5f2;
+            --bg: #fdf7f8;
             --card: #ffffff;
             --text: #2d2d33;
-            --muted: #7b7b8b;
-            --primary: #d98399;
-            --primary-dark: #b35f75;
-            --surface: rgba(255, 255, 255, 0.8);
-            --border: rgba(173, 150, 162, 0.25);
+            --muted: #8c7f82;
+            --primary: #d98399; /* Cor principal inspirada no app */
+            --primary-light: #fcecf0;
+            --border: #f0e1e5;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            min-height: 100vh;
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: radial-gradient(circle at top left, rgba(217, 131, 153, 0.18), transparent 25%),
-                        radial-gradient(circle at bottom right, rgba(92, 154, 172, 0.16), transparent 30%),
-                        linear-gradient(180deg, #fdf9f6 0%, #f5f0ee 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
             color: var(--text);
-            padding: 32px;
-        }
-
-        .page {
-            display: grid;
-            place-items: center;
+            line-height: 1.6;
             padding: 20px;
         }
 
-        .card {
-            width: min(100%, 920px);
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 36px;
-            box-shadow: 0 32px 80px rgba(92, 86, 107, 0.12);
-            overflow: hidden;
-        }
+        .container { max-width: 800px; margin: 0 auto; }
 
-        .hero {
-            position: relative;
-            padding: 48px 40px;
-            background: linear-gradient(145deg, rgba(217, 131, 153, 0.12), rgba(92, 154, 172, 0.08));
-            backdrop-filter: blur(20px);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 10% 20%, rgba(217, 131, 153, 0.2), transparent 18%),
-                        radial-gradient(circle at 80% 30%, rgba(92, 154, 172, 0.2), transparent 18%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-width: 680px;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 16px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.72);
-            border: 1px solid rgba(173, 150, 162, 0.18);
-            font-size: 0.95rem;
-            color: var(--primary-dark);
-            width: fit-content;
-        }
-
-        .badge::before {
-            content: '';
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--primary);
-        }
-
-        h1 {
-            font-size: clamp(2.6rem, 3vw, 3.4rem);
-            line-height: 1.02;
-            letter-spacing: -0.03em;
-            margin-top: 12px;
-            color: #2f2330;
-        }
-
-        .subtitle {
-            color: var(--muted);
-            font-size: 1rem;
-            max-width: 680px;
-        }
-
-        .info-row {
-            margin-top: 24px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .pill {
-            background: rgba(217, 131, 153, 0.08);
-            color: #a65e79;
-            border-radius: 999px;
-            padding: 10px 18px;
-            font-size: 0.95rem;
-            border: 1px solid rgba(217, 131, 153, 0.14);
-        }
-
-        .content {
-            display: grid;
-            gap: 28px;
-            padding: 40px;
-        }
-
-        .section {
-            display: grid;
-            gap: 14px;
-        }
-
-        .section h2 {
-            font-size: 1.45rem;
-            color: #3b3450;
-            border-bottom: 2px solid rgba(217, 131, 153, 0.27);
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .section p,
-        .section li {
-            color: #4b4b59;
-            line-height: 1.75;
-        }
-
-        .section ul {
-            list-style: none;
-            display: grid;
-            gap: 10px;
-            margin-top: 10px;
-            padding-left: 0;
-        }
-
-        .section li {
-            padding: 18px 20px;
-            border-radius: 18px;
-            background: #faf6f3;
-            border: 1px solid rgba(217, 131, 153, 0.11);
-        }
-
-        .section li strong {
-            color: #2d2d33;
-        }
-
-        .highlight {
-            border-radius: 24px;
-            padding: 22px;
-            background: linear-gradient(90deg, rgba(217, 131, 153, 0.10), rgba(92, 154, 172, 0.08));
-            border: 1px solid rgba(173, 150, 162, 0.16);
-            color: #3b3450;
-        }
-
-        .contact {
-            display: grid;
-            gap: 16px;
-            padding: 28px;
-            border-radius: 28px;
-            background: #fbf8f6;
-            border: 1px solid rgba(173, 150, 162, 0.14);
-        }
-
-        .contact h2 {
-            margin: 0;
-            border: none;
-            padding: 0;
-            color: #3b3450;
-        }
-
-        .contact ul {
-            list-style: none;
-            display: grid;
-            gap: 10px;
-            padding-left: 0;
-            margin: 0;
-        }
-
-        .contact li {
-            display: flex;
-            gap: 8px;
-            align-items: baseline;
-            color: #4b4b59;
-        }
-
-        .contact a {
-            color: #c95b7d;
-            text-decoration: none;
-        }
-
-        .contact a:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
-            padding: 28px 40px 36px;
+        .header {
             text-align: center;
-            font-size: 0.93rem;
-            color: var(--muted);
-            border-top: 1px solid rgba(173, 150, 162, 0.12);
-            background: rgba(255, 255, 255, 0.72);
+            padding: 60px 20px;
         }
 
-        @media (max-width: 840px) {
-            .hero {
-                padding: 32px 28px;
-            }
-
-            .content {
-                padding: 32px 28px;
-            }
-
-            .footer {
-                padding: 24px 28px 30px;
-            }
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
         }
 
-        @media (max-width: 620px) {
-            body {
-                padding: 18px;
-            }
+        h1 { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
 
-            .hero {
-                padding: 28px 22px;
-            }
-
-            .content {
-                padding: 28px 22px;
-            }
-
-            h1 {
-                font-size: 2.4rem;
-            }
-
-            .section h2 {
-                font-size: 1.25rem;
-            }
-
-            .pill {
-                width: 100%;
-            }
+        .card {
+            background: var(--card);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(217, 131, 153, 0.08);
+            border: 1px solid var(--border);
         }
+
+        h2 { color: var(--primary); margin: 30px 0 15px; font-size: 1.5rem; }
+
+        ul { margin-left: 20px; margin-bottom: 20px; }
+        li { margin-bottom: 8px; color: #4a4a4a; }
+
+        .contact-box {
+            background: var(--primary-light);
+            padding: 20px;
+            border-radius: 16px;
+            margin-top: 30px;
+            border-left: 4px solid var(--primary);
+        }
+
+        footer { text-align: center; padding: 40px; color: var(--muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
-    <main class="page">
-        <article class="card">
-            <section class="hero">
-                <div class="hero-content">
-                    <span class="badge">Política de Privacidade</span>
-                    <h1>Seu app, seus dados, sua confiança.</h1>
-                    <p class="subtitle">Transparência total sobre como coletamos, usamos e protegemos as informações de quem utiliza o UNIQUE.</p>
-                    <div class="info-row">
-                        <span class="pill">Atualização: 22 de maio de 2026]</span>
-                        <span class="pill">Aplicativo: UNIQUE</span>
-                    </div>
-                </div>
-            </section>
 
-            <section class="content">
-                <div class="section">
-                    <p>Esta Política de Privacidade descreve como o <strong>UNIQUE</strong> ("nós", "nosso" ou "aplicativo") coleta, armazena, utiliza e protege suas informações pessoais ao usar o serviço.</p>
-                </div>
+<div class="container">
+    <header class="header">
+        <div class="logo-placeholder">U</div>
+        <h1>UNIQUE</h1>
+        <p>Beauty and Care | Política de Privacidade</p>
+    </header>
 
-                <div class="highlight">
-                    <strong>Ao utilizar o UNIQUE, você concorda com a coleta e uso de dados conforme descrito nesta política.</strong>
-                </div>
+    <main class="card">
+        <p>Atualizado em: 22 de maio de 2026</p>
+        
+        <h2>1. Coleta de Dados</h2>
+        <p>No UNIQUE, priorizamos sua privacidade. Coletamos apenas dados necessários para oferecer nossos serviços de beleza, como e-mail, nome e informações de agendamento.</p>
 
-                <div class="section">
-                    <h2>1. Informações que coletamos</h2>
-                    <p>Para entregar uma experiência segura e eficiente, podemos coletar:</p>
-                    <ul>
-                        <li><strong>E-mail:</strong> para autenticação, recuperação de conta e notificações.</li>
-                        <li><strong>Número de telefone:</strong> para verificação adicional e segurança.</li>
-                        <li><strong>Dados de cadastro:</strong> informações fornecidas no registro.</li>
-                        <li><strong>Dados de uso:</strong> como você interage com o app.</li>
-                        <li><strong>Dados do dispositivo:</strong> modelo, sistema operacional e identificadores.</li>
-                        <li><strong>Logs de erro:</strong> para diagnosticar e corrigir problemas.</li>
-                    </ul>
-                </div>
+        <h2>2. Uso das Informações</h2>
+        <p>Suas informações são utilizadas exclusivamente para:</p>
+        <ul>
+            <li>Autenticação e segurança da sua conta;</li>
+            <li>Gestão de seus pedidos e agendamentos;</li>
+            <li>Melhoria contínua da experiência do usuário.</li>
+        </ul>
 
-                <div class="section">
-                    <h2>2. Como usamos suas informações</h2>
-                    <p>Usamos os dados coletados para:</p>
-                    <ul>
-                        <li>Manter e melhorar o aplicativo.</li>
-                        <li>Gerenciar sua conta e autenticação.</li>
-                        <li>Enviar avisos importantes sobre o serviço.</li>
-                        <li>Personalizar e expandir funcionalidades.</li>
-                        <li>Detectar e corrigir erros.</li>
-                        <li>Prevenir fraudes e acessos não autorizados.</li>
-                        <li>Cumprir exigências legais.</li>
-                    </ul>
-                </div>
+        <h2>3. Proteção e Segurança</h2>
+        <p>Implementamos rigorosos protocolos de segurança para garantir que seus dados permaneçam confidenciais e protegidos contra acessos não autorizados.</p>
 
-                <div class="section">
-                    <h2>3. Compartilhamento</h2>
-                    <p>Nós <strong>não vendemos</strong> seus dados. Compartilhamos somente quando necessário:</p>
-                    <ul>
-                        <li><strong>Provedores de serviços:</strong> parceiros que mantêm o aplicativo em funcionamento.</li>
-                        <li><strong>Conformidade legal:</strong> quando exigido por lei ou para proteger nossos direitos.</li>
-                        <li><strong>Com seu consentimento:</strong> quando você aceitar explicitamente.</li>
-                    </ul>
-                </div>
+        <h2>4. Seus Direitos</h2>
+        <p>Você tem total controle sobre seus dados, podendo solicitar acesso, correção ou exclusão a qualquer momento, conforme assegurado pela LGPD.</p>
 
-                <div class="section">
-                    <h2>4. Segurança</h2>
-                    <p>Empregamos medidas de proteção para manter seus dados seguros:</p>
-                    <ul>
-                        <li>Criptografia de tráfego e armazenamento.</li>
-                        <li>Controle de acesso restrito.</li>
-                        <li>Monitoramento contínuo.</li>
-                        <li>Revisões regulares de segurança.</li>
-                    </ul>
-                    <p>Mesmo assim, nenhum sistema é 100% infalível.</p>
-                </div>
-
-                <div class="section">
-                    <h2>5. Retenção de dados</h2>
-                    <p>Guardamos suas informações apenas pelo tempo necessário para os fins descritos ou conforme exigido por lei. Quando você solicitar a exclusão da conta, seus dados ativos serão removidos.</p>
-                </div>
-
-                <div class="section">
-                    <h2>6. Seus direitos</h2>
-                    <p>De acordo com a LGPD, você pode:</p>
-                    <ul>
-                        <li><strong>Acessar:</strong> solicitar cópia de seus dados.</li>
-                        <li><strong>Corrigir:</strong> atualizar informações incorretas.</li>
-                        <li><strong>Excluir:</strong> pedir remoção de dados.</li>
-                        <li><strong>Portabilidade:</strong> transferir dados para outro fornecedor.</li>
-                        <li><strong>Revogar consentimento:</strong> retirar permissões a qualquer momento.</li>
-                        <li><strong>Informação:</strong> saber como os dados são usados.</li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h2>7. Menores</h2>
-                    <p>O UNIQUE não é destinado a menores de 18 anos. Não coletamos intencionalmente dados de crianças. Se um responsável identificar essa situação, deve nos contatar imediatamente.</p>
-                </div>
-
-                <div class="section">
-                    <h2>8. Cookies e rastreamento</h2>
-                    <p>O aplicativo pode usar cookies e identificadores para melhorar a experiência e manter sessões. Essas preferências podem ser gerenciadas pelas configurações do app.</p>
-                </div>
-
-                <div class="section">
-                    <h2>9. Alterações na política</h2>
-                    <p>Atualizaremos esta política quando necessário. A data de última atualização será revista e a nova versão será publicada nesta página.</p>
-                </div>
-
-                <div class="section">
-                    <h2>10. Sites de terceiros</h2>
-                    <p>O UNIQUE pode conter links para sites externos. Não somos responsáveis pelas práticas de privacidade desses sites. Leia sempre as políticas de privacidade de terceiros.</p>
-                </div>
-
-                <div class="contact">
-                    <h2>Contato</h2>
-                    <p>Se tiver dúvidas ou quiser exercer seus direitos, entre em contato conosco:</p>
-                    <ul>
-                        <!-- <li><strong>E-mail:</strong> <a href="mailto:[SEU_EMAIL]">[SEU_EMAIL]</a></li> -->
-                        <li><strong>Empresa:</strong> Unique</li>
-                        <li><strong>Endereço:</strong> Av. Bandeirantes, 1407 - GuanandiCampo Grande - MS, 79006-001</li>
-                    </ul>
-                    <p>Responderemos suas solicitações em até 15 dias úteis, conforme a LGPD.</p>
-                </div>
-            </section>
-
-            <footer class="footer">
-                <p>&copy; 2024 UNIQUE. Todos os direitos reservados.</p>
-            </footer>
-        </article>
+        <div class="contact-box">
+            <h2>Contato</h2>
+            <p>Dúvidas? Entre em contato conosco:</p>
+            <p><strong>Endereço:</strong> Av. Bandeirantes, 1407 - Guanandi, Campo Grande - MS</p>
+            <p><strong>App:</strong> UNIQUE Beauty and Care</p>
+        </div>
     </main>
+
+    <footer>
+        &copy; 2026 UNIQUE. Todos os direitos reservados.
+    </footer>
+</div>
+
 </body>
 </html>
